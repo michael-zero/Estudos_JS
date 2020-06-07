@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //O JS coloca a criação das variaveis para cima. . usando var e atribui no momento q ta no code 
+        var nome = 'maria'
+        const mostrar = () => { 
+            //nome = undefined
+            console.log(nome);
+            var nome = 'marcos'
+        }
+
+//a variavel let evita o hoist. . 
+        let idioma = 'English'
+        function falar(){
+            console.log(idioma);
+            let idioma = 'Russo'
+        }
+
+        function mostrarIdade(){
+           
+           var idade = 21; 
+           console.log(idade)
+
+           console.log('----------')
+           console.log(testeHoisting());
+
+        //    function testeHoisting(){ // funcoes literais sempre sao jogadas para cima
+        //        return 'funfou'
+        //    }
+
+            var testeHoisting = function(){
+                return 'funfou'
+            }
+
+        }
+
+        
+
+
+        mostrar();
+       // falar();
+       mostrarIdade();
+
+    </script>
+</body>
+</html>

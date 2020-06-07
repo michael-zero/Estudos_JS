@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        
+        const mostrar = (text) => console.log(text)
+        
+        
+        var frase = "Olá, eu sou o Goku!"
+
+
+        //replace altera a primeira ocorrência
+        console.log(frase.replace("á","é"));
+        //indexOf retorna a position da primeira ocorrencia ou -1 se não achou
+        console.log(frase.indexOf('u'));
+        //lastIndexOf - retorna a pos da ultima ocorrencia
+        console.log(frase.lastIndexOf('u'));
+
+        //retorna a string a partir deste indice
+        mostrar(frase.slice(3))
+        mostrar(frase.slice(0, 4));
+
+        //substring -> semelhante ao slice, retorna um pedaço da String, porem ele sabe inverter quando o primeiro parametro é maior que o segundo
+        //ja o slice retorna string vazia
+        mostrar(frase.substring(2, 9)) //inclusivo, exclusivo
+        mostrar(frase.split(' ')); //gera um vetor de strings quebrando no parametro
+        mostrar(frase.toUpperCase); //maiusculo
+        mostrar(frase.toLowerCase); //minusculo
+
+    </script>
+</body>
+</html>

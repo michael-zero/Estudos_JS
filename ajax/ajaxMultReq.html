@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+
+    <dl id="lista-usuarios">
+
+    </dl>
+
+    <script>
+
+        const $listaUsuarios = document.querySelector('#lista-usuarios');
+        
+        function getUser(id, callback){
+            let xhr = new XMLHttpRequest();
+            let url = `http://jsonplaceholder.typicode.com/users/`+id;
+            
+
+            xhr.open("GET", url);
+            xhr.send(null);
+            xhr.onreadystatechange = function(){
+            // console.log('aqui:', xhr.readyState);
+            //  console.log(xhr.status);
+            if(xhr.readyState === 4 ){ //cliente recebeu, status da requisicao
+                if(xhr.status === 200 || xhr.status === 304){//200 ok! status da resposta, 304 resp no cache
+                    //console.log('responseText ', xhr.responseText)
+                    let resposta = xhr.responseText;
+                    resposta = JSON.parse(resposta)
+                    console.log(resposta);
+                   
+                  if(callback && typeof callback === "function"){
+                        callback(resposta);
+                  }
+                  
+
+                }else{
+                    alert('deu ruim na resposta');
+                    console.log(xhr);
+                 }
+            }
+            }
+        }        
+
+
+        function mostraUsuarios(usuario){
+            adicionarElemento($listaUsuarios, 'dt', usuario.id);
+            adicionarElemento($listaUsuarios, 'dd', usuario.name, usuario.phone);
+        }
+
+        function adicionarElemento(container, tag, ...dados){
+            //Spread operator
+           [...dados].forEach(str => {
+            let _tag = document.createElement(tag); //crio o elemento -> dt ou dd
+            let _textNode = document.createTextNode(str); // crio o conteudo
+
+            _tag.appendChild(_textNode); //adiciono o conteudo no elemento
+            container.appendChild(_tag);  //coloco do elemento na lista
+         })           
+        }
+
+        getUser(1, function(usuario){
+             mostraUsuarios(usuario);
+             getUser(2, function(usuario){
+                mostraUsuarios(usuario);
+                getUser(3, function(usuario){
+                    mostraUsuarios(usuario);
+                });
+             });
+        });
+        
+
+      
+
+        
+    </script>
+</body>
+</html>

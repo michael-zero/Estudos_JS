@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .caixa{
+            background: gold;
+        }
+    </style>
+
+    <div class="caixa">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, harum!</p>
+    </div>
+
+</head>
+<body>
+
+    <script>
+       window.addEventListener('load', function(){
+            var $caixa = document.querySelector('.caixa');
+            var $p = document.querySelector('p');
+            // alert($caixa.style.background); //recupera estilos aplicados inline
+          //  alert(window.getComputedStyle($caixa).background) //recupera de class e ids
+
+          console.log($p.offsetHeight, $p.offsetWidth); //altura em relação ao documento
+          console.log($p.getBoundingClientRect().top); // retorna a distancia do top ate a viewport
+
+       })
+    </script>
+</body>
+</html>

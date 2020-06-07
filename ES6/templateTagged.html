@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green{
+            color: green;
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+
+        const city = `timon`;
+        const esporte = `futsal`;
+        const seguranca = `11 BPM`
+
+        function curiosidades(template, ...values){//template sao as variaveis e values sao os argumentos{city, esporte..}
+            return template.reduce((accumulator, part, i) => {
+                return `
+                    ${accumulator}
+                    <span class="green">${values[i - 1].toUpperCase()}</span>
+                    ${part}
+                    
+                `
+            })
+        }
+
+        const timon = curiosidades`eu moro em ${city} a cidade do ${esporte} e do ${seguranca}`;
+
+        document.body.innerHTML = timon;
+
+    </script>
+</body>
+</html>

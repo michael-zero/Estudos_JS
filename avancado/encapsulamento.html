@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        (function(){
+
+
+        //Encapsulamento
+            function show(){
+                console.log('Imperial_Zero');
+            }
+            window.nome = show;
+
+        //Apply
+            function teste(nome, idade){
+                console.log(`${nome}, tenho ${idade}y`);
+                console.log(this);
+            }
+
+            teste('zero', 11) //mostra o window
+
+            var obj1 = {nome: 'jubiraca'};
+
+            teste.apply(obj1, ['imperial', 21]); //adicionando ao obj1 o metodo teste e passando os argumentos
+            teste.call(obj1, 'zeroki', 11);
+
+
+            function thisNaoEstrito(){ // obj global é o window
+                console.log(this);
+            }
+
+            function thisEstrito(){ // é pra dar undefined, pois nao tem um objeto
+                'use strict'
+                console.log(this);
+            }
+
+            thisNaoEstrito();
+            thisEstrito();
+
+        })()
+    </script>
+</body>
+</html>

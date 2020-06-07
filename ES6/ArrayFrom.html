@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <ul id="lista">
+        <li>Michael</li>
+        <li>Lesley</li>
+        <li>&</li>
+        <li>Nadia</li>
+    </ul>
+
+</head>
+<body>
+    <script>
+        const lista = document.querySelectorAll('#lista li');
+        const listArray = Array.from(lista);
+
+        console.log(listArray);
+
+        const nomes =  listArray.map(nome => nome.textContent)
+
+        console.log(nomes);
+
+    </script>
+</body>
+</html>

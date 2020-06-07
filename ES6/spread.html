@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const show = console.log;
+
+        show(...'Michael');
+        show([...'Michael'])
+
+
+        const geraldo = {
+            nome: 'Geraldo',
+            idade: 50
+        }
+
+        const cargo = {
+            profissao: 'açougueiro',
+            turno: 'noite'
+        }
+
+        const Pessoa = {...geraldo, ...cargo}; //spread de objetos 
+
+        show(Pessoa);
+
+        show(Object.keys(Pessoa)); //chaves 
+        show(Object.values(Pessoa));
+
+        function apresentar(nome, idade){
+             show(`Oi! eu sou o ${nome} e tenho ${idade} anos.`)
+        }
+
+        show(Object.values({...geraldo})); //spread de objetos 
+
+        apresentar(...Object.values({...geraldo}));
+
+
+        function fazerSanduiche(pao, queijo, molho){
+            console.log(`Seu sanduiche com ${pao}, queijo ${queijo} e molho ${molho} está feito`)
+        }
+
+        const ingredientes = ['branco', 'cheddar', 'barbecue'];
+
+        show(...ingredientes);
+        fazerSanduiche(...ingredientes);
+
+        //REST PARAMS
+
+        const multiplicar = (n, ...args) => {
+            return args.map(numero => numero * n);
+        }
+
+        show(multiplicar(7, 4, 6 ,8 , 9));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        class Pessoa{
+            constructor(nome, id){
+                this.nome = nome;
+                this.id = id;
+
+                const cor = 'azul';
+                this._altura = 1.79 //fake private
+
+                this.getCor = function(){
+                    return cor;
+                }
+
+                
+            }
+
+            static acionar(){
+                console.log('eu posso pensar,')        
+            }
+
+            static get falar(){
+                return console.log('oi')
+            }
+
+            get altura(){
+                return this._altura;
+            }
+
+            set altura(altura){
+                this._altura = altura;
+            }
+        }
+
+       class Trabalhador extends Pessoa {
+            constructor(nome, id ,cargo){
+                super(nome, id);
+                this.cargo = cargo;
+            }
+       }
+
+       var t1 = new Trabalhador('carlos', 66 ,'ceifeiro');
+
+
+
+         
+
+
+
+    </script>
+</body>
+</html>

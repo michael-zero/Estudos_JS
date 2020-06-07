@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+//O método every() testa se todos os elementos do array passam pelo teste implementado pela função fornecida.
+ var arr = [12, 7 ,'a', 0];
+
+ //el elemento , i indice, obj
+ var v = arr.every( function(el){
+     return el % 2 == 0
+ })
+
+ console.log(v); //false, pois existe o 'a'
+
+ //metodo some -> se existe pelo menos 1 que satisfaça, retorna TRUE
+ var algum = arr.some((el) => el % 2 == 0)
+ console.log(algum);
+
+//retorna um novo array com os el's que satisfazem a condição
+var numeros  = [-1, 8, 4, 6, -2, -0.77]
+var negativos = numeros.filter( el => el < 0);
+console.log(negativos);
+
+//percorre o vetor sem precisar laços for, while
+numeros.forEach((el, i) => {
+    console.log(`[${i}] = ${el}`)
+})
+
+console.log('Pos = ', numeros.indexOf(-0.77))
+console.log(numeros)
+console.log('iniciando do indice 2(procurar o 8) = ', numeros.indexOf(8, 2))
+// retorna -1 se nao encontrar
+
+//MAP realiza alterações em cada elemento do Array de acordo com a condicao
+var map = numeros.map(el => el * -1);
+console.log(map);
+
+//metodo concat
+var novo = arr.concat(numeros, 'fim');
+console.log(novo);
+//transforma o array em string
+var join = novo.join(' '); //semelhante ao toString, a != é que ele aceita o separador 
+console.log(join)
+
+//metodo push adiciona el's no array
+numeros.push('push');
+console.log(numeros);
+
+console.log('pop  = ',numeros.pop()); // remove o ultimo
+
+numeros.shift(); //remove o primeiro
+numeros.unshift('inicio');
+console.log(numeros);
+
+
+//reduce: opera sobre todo array e retorna um unico valor
+var numbers = [1,2,3]
+console.log(numbers)
+var somatorio = numbers.reduce((prev, current) => {
+    console.log('ant:', prev + ' atual: ', current)
+    return prev + current
+}) 
+
+console.log(somatorio);
+
+var slice = [7,5,3,2,1]; //retorna uma parte do array
+console.log(slice.slice(1, slice.length-1));
+
+console.log(slice);
+//splice retorna os removidos, adiciona, 
+slice.splice(2, 0 ,'novo1', 'novo2');
+
+console.log(slice)
+
+
+const mostrar = text => console.log(text)
+
+
+</script>
+
+</html>

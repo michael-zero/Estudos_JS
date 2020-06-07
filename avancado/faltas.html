@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        
+      
+        
+        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        
+    </body>
+    
+    <script>
+                
+        const alunos = [
+            {"_id": 1, "nome": "Daniel"},
+            {"_id": 2, "nome": "Maria"},
+            {"_id": 3, "nome": "José"},
+            {"_id": 4, "nome": "João"}
+        ];
+        
+        const faltas = [
+            {"_idAluno": 1, faltas: 5},
+            {"_idAluno": 2, faltas: 11},
+            {"_idAluno": 3, faltas: 0},
+            {"_idAluno": 4, faltas: 15}
+        ];
+        
+        const reprovadosPorFalta = faltas
+                .filter( falta => falta.faltas > 10 ) // para cada obj, retorne aqueles com num faltas > 10 [id, n faltas]
+                .map( falta => falta._idAluno ) // retorne apenas o id do aluno com numero de faltas > 10
+                .map( idAluno => alunos.filter( aluno => aluno._id === idAluno )[0].nome)
+                //para cada id recebido, filtre no array de alunos.. e para casa aluno pegue somente aqueles que possuem 
+                //id igual ao recebido.
+
+        
+        console.table(reprovadosPorFalta)
+        
+            
+    </script>
+</html>

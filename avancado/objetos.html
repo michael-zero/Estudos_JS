@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Pessoa(nome){
+            this.nome = nome; 
+            this.falar = () => {
+                console.log(`Oi, eu o ${nome}`);
+            }
+            this.endereco = 'sei la, moro no mundo'
+        }
+
+        var John = new Pessoa('John');
+        John.falar();
+        console.log(John.endereco);
+
+        var Julia = Object.create(John); // bom para clonar objetos.
+        Julia.idade = 19;
+        Julia.cor = 'morena';
+
+        console.log(Julia); //objeto vazio
+        console.log(Julia.endereco);
+        console.log(Julia.nome); 
+
+        console.log('OwnProperty: ');
+        for( var prop in Julia){
+            if(Julia.hasOwnProperty(prop)){
+                console.log(prop);
+            }
+        }
+
+
+
+        //reveal pattern 
+        var somador = (function(){
+        var somatorio = 0;
+
+        function isNumber(_n){
+            return typeof _n === 'number';
+        }
+
+        function _somar(_n){
+            if(isNumber(_n)){
+                somatorio +=_n
+            }
+            
+        }
+
+        function _log(){
+            console.log('somatorio =', somatorio);
+        }
+
+        return{
+            add: _somar,
+            mostrar: _log
+        }
+
+        })();
+
+        console.log('se a prop add esta em somador:')
+        console.log('add' in somador);
+
+
+        var keys = Object.keys(Julia);
+        console.log('props:', keys);
+
+        console.log('values: ', Object.values(Julia))
+
+        console.log('key - value', Object.entries(Julia));
+
+        //deletar delete obj.nome
+       
+
+
+    </script>
+</body>
+</html>

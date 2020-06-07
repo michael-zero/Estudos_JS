@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const thisArrow = () => {console.log(this)}; //mostra o contexto global!
+        thisArrow();
+
+        const arrowFunctionThis = {// forma errada, pois nao linka o this ao objeto!
+            prop: 110, 
+            f: () => {console.log(this)}
+        }
+
+        arrowFunctionThis.f();
+
+        const obj1 = { // forma correta!!, é preciso usar o function para linkar ao objeto
+            prop: 'parent é pra ser o obj1',
+            f: function(){
+                console.log((() => this)() )
+            }
+        }
+
+        obj1.f();
+
+
+// ===================== Interessante =========================================
+        function thisBind(){ //desta forma o objeto global é mostrado -> WINDOW
+            console.log(this);
+        }
+
+        obj2 = {nome: 'usando Bind'};
+
+        thisBind = thisBind.bind(obj2); //criando nova funcao
+
+        thisBind();
+
+//================== apply e call ==============================================
+        obj3 = { call : 'obj3 call', mostraThis: function(){
+            console.log(this);
+        }}
+
+        obj4 = {call : 'obj4 call'}
+
+        obj3.mostraThis(); 
+
+        obj3.mostraThis.call(obj4); //atribui  o metodo do obj3 ao ao obj4
+
+
+
+
+    </script>
+</body>
+</html>

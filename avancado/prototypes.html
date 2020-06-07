@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Animal(tipo){
+            if(tipo) this.tipo = tipo;
+            //console.log(this);
+        }
+
+        Animal.prototype.obterTipo = function(){
+            return this.tipo;
+        }
+
+        Animal.prototype.tipo = 'desconhecido';
+
+        var dog = new Animal('mamifero');
+        var cat = new Animal();
+
+        console.log(cat.obterTipo())
+
+
+        function teste(){
+            console.log(arguments);
+
+            Array.prototype.forEach.call(arguments, function(argument){ //adicionando o metodo forEach ao arguments
+                console.log('argumentos: ', argument)
+                //a function é o paramento do forEach
+            })
+        }
+        
+        teste(1,'zero', 'dois', 900);
+       
+
+    </script>
+</body>
+</html>

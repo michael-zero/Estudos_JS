@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+
+    <dl id="lista-usuarios">
+
+    </dl>
+
+    <script>
+
+        const $listaUsuarios = document.querySelector('#lista-usuarios');
+       
+        async function getUser(id){ 
+           // let url = `http://jsonplaceholder.typicode.com/users/`+id;
+            let url = `https://jsonplaceholder.cypress.io/todos/${id}`
+            let promise = await fetch(url); //resposta
+
+            if(!promise.ok){
+                throw new Error('Fail!');
+            }
+
+            let usuario =  await promise.json();
+
+            return usuario;
+         
+        }        
+
+
+        function mostraUsuarios(usuario){
+            adicionarElemento($listaUsuarios, 'dt', usuario.id);
+            adicionarElemento($listaUsuarios, 'dd', usuario.name, usuario.phone);
+        }
+
+        function adicionarElemento(container, tag, ...dados){
+            //Spread operator
+           [...dados].forEach(str => {
+            let _tag = document.createElement(tag); //crio o elemento -> dt ou dd
+            let _textNode = document.createTextNode(str); // crio o conteudo
+
+            _tag.appendChild(_textNode); //adiciono o conteudo no elemento
+            container.appendChild(_tag);  //coloco do elemento na lista
+         })           
+        }
+
+     getUser(1)
+            .then( resposta => {
+                console.log(resposta);
+                mostraUsuarios(resposta);
+                return getUser(4);
+            })
+            .then(resposta  => {
+                console.log('sucesso')
+                console.log(resposta);
+                mostraUsuarios(resposta);
+                return getUser(3);
+            })
+            .then(resposta  => {
+                mostraUsuarios(resposta);
+               
+            })
+            .catch( err => console.log(err));
+        
+
+      
+
+        
+    </script>
+</body>
+</html>

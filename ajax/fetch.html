@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+
+    <dl id="lista-usuarios">
+
+    </dl>
+
+    <script>
+
+        const $listaUsuarios = document.querySelector('#lista-usuarios');
+        //abstracao do xmlHTTPrequest
+        //sempre executao then
+        function getUser(id){ 
+            let url = `http://jsonplaceholder.typicode.com/users/`+id;
+            return fetch(url)
+            .then(resposta => {
+                //console.log(resposta)
+                if(!resposta.ok){ //se n existir o parametro passado na req, gera um erro p/ser capt. no catch
+                    throw new Error('Erro: arquivo nao existe');
+                }
+                return resposta; //retorna um objeto da requisição p/ o prox then  e sera convertido em json 
+            })
+            .then(r => {
+                //console.log(r);
+                let json = r.json(); // a partir do json eu consigo obter o conteudo
+                return json;
+            })
+        }        
+
+
+        function mostraUsuarios(usuario){
+            adicionarElemento($listaUsuarios, 'dt', usuario.id);
+            adicionarElemento($listaUsuarios, 'dd', usuario.name, usuario.phone);
+        }
+
+        function adicionarElemento(container, tag, ...dados){
+            //Spread operator
+           [...dados].forEach(str => {
+            let _tag = document.createElement(tag); //crio o elemento -> dt ou dd
+            let _textNode = document.createTextNode(str); // crio o conteudo
+
+            _tag.appendChild(_textNode); //adiciono o conteudo no elemento
+            container.appendChild(_tag);  //coloco do elemento na lista
+         })           
+        }
+
+     getUser(3)
+            .then( resposta => {
+               // console.log(resposta);
+                mostraUsuarios(resposta);
+                return getUser(1)
+            })
+            .then(resposta => {
+              //  console.log(resposta)
+                mostraUsuarios(resposta);
+                 return getUser(4);
+            })
+            .then(r => {
+                mostraUsuarios(r);
+            })
+            .catch( err => console.log(err));
+        
+
+      
+
+        
+    </script>
+</body>
+</html>

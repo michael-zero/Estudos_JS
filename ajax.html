@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elson</title>
+</head>
+
+<body>
+    <script>
+        const log = console.log;
+        /*==========================================
+                      ETAPAS
+        =============================================
+            1. Cria a solicitaçao
+            2. Configura a solicitaçao (metodo, url)
+            3. Envia a solicitação
+
+            4. Verfica se o servidor recebeu a solicitaçao
+            5. Verifica se a resposta enviada ta ok
+            6. Usa os dados obtidos
+            Obs.: Lembrando que como é uma operação 
+            assíncrona temos que esperar o obj chegar
+        ===============================================*/
+        let url = "http://jsonplaceholder.typicode.com/users/";
+
+
+
+        ///1.cria
+        const xhr = new XMLHttpRequest();
+        ///2. configura
+
+        ///ESPERAR O OBJETO (xhr) RECEBER AS INFOS                      <=== NAO MOSTRAVA NADA  POR ISSO BARKAO
+        xhr.addEventListener('readystatechange', () => {
+            //log(xhr.readyState); 
+            if (xhr.readyState === 4) {
+                //o estado vai de 1 a 4, so fica pronto no 4
+                ///6. Usa os dados obtidos
+                log(xhr.responseText);
+            }
+        })
+
+
+        xhr.open('get', url);
+        xhr.send();
+
+
+
+
+
+
+        /*
+
+        ///CODIGO ANTERIOR
+        let xhr = new XMLHttpRequest();
+        let url = "http://jsonplaceholder.typicode.com/users/";
+
+        function verificaAjax(){
+            //console.log('aqui:', xhr.readyState);
+           console.log(xhr.status);
+
+            if(xhr.readyState === 4 ){ //cliente recebeu, status da requisicao
+                if(xhr.status === 200 || xhr.status === 304){//200 ok! status da resposta, 304 resp no cache
+                    console.log('responseText ', xhr.responseText)
+                    let resposta = xhr.responseText;
+
+                    resposta = JSON.parse(resposta)
+                   
+                    console.log(resposta);
+
+                }else{
+                    alert('deu ruim na resposta');
+                    console.log(xhr);
+                 }
+            }
+        }
+
+
+        xhr.open("GET", url);
+        xhr.send();
+
+        verificaAjax();
+*/
+    </script>
+</body>
+
+</html>

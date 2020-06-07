@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function soAceitaPares(numero){
+            const promise = new Promise( (resolve, reject) => { 
+                                if (numero % 2 === 0) { 
+                                    const resultado = 'Viva, é par!';
+                                    resolve(resultado);
+                                } 
+                                else { 
+                                    reject(new Error("Você passou um número ímpar!"));
+                                } 
+                            });
+            return promise;
+        }
+
+  
+        function dividePelaMetade(numero){
+            if(numero % 2 !== 0)
+                return Promise.reject(new Error(`Não posso dividir um número ímpar! {${numero}} `));
+            else
+                return Promise.resolve(numero / 2);
+        }
+
+        // let numero = 10;
+        // soAceitaPares(numero)
+        // .then(res => dividePelaMetade(numero))
+        // .then(res2 => console.log('A metade de ' + numero + ' e ' + res2 ))
+        // .catch(e => console.log('promises rejected ' + e));
+
+
+
+
+        const numeros = [2,3,6,8,10];
+        const promises = [];
+        numeros.forEach(entry => promises.push(dividePelaMetade(entry))); //insere no vetor promisses cada resultado do divide pela metade
+        Promise.all(promises)
+            .then(results => results.forEach(entry => console.log(entry)))
+            .catch(error => console.log(error));
+        
+        console.log("teste");
+
+
+    </script>
+</body>
+</html>

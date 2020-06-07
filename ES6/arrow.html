@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button id="btn">clique aqui</button>
+    <button id='btnWin'>window</button>
+    <button id='sand'>Fazer sanduíche</button>
+</head>
+<body>
+    <script>
+    
+        const $btn = document.getElementById('btn');
+        const $btnWin = document.getElementById('btnWin')
+        const $sand = document.getElementById('sand')
+
+
+
+        const sanduiche = {
+            pao: 'branco',
+            queijo: 'cheddar',
+
+            preparar: function(){
+                return `eu quero um sanduiche com pao ${this.pao} e queijo ${this.queijo}`
+            },
+
+            fazer: function(){
+                window.setTimeout(() => {
+                    console.log(this.preparar())
+                }, 500)
+            }
+        }
+
+
+
+
+        $btn.addEventListener('click', function(){
+            console.log(this);
+        })
+
+        $btnWin.addEventListener('click', () => {
+             console.log(this);
+        })
+
+        $sand.addEventListener('click', function(){ sanduiche.fazer()})
+
+    </script>
+</body>
+</html>

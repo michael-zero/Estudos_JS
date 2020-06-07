@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+
+    const article = {
+        title: `JavaScript ES6`,
+        intro: `Aprendendo template strings`,
+        body: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia corrupti 
+        quidem non deleniti molestiae libero.`,
+        alunos: [`Michael`, `Elson`, `Nádia`, `Jozilene`],
+        author: `Zero`
+
+    };
+
+    function renderAuthor(nome){
+        return (nome) ? nome : 'desconhecido';
+    }
+
+    const markup = `
+        <article>
+            <header> ${article.title}</header>
+            <section>${article.intro}</section>
+            <footer>
+                <ul>
+                    ${article.alunos.map((aluno) => `<li>${aluno}</li>`).join(' ')}
+                </ul>
+
+                <p>Author: ${renderAuthor(article.author)}</p>
+
+            </footer>
+        </article>`
+    
+    document.body.innerHTML = markup;
+    
+ 
+    </script>
+</body>
+</html>

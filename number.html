@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const mostrar = (text) => console.log(text)
+
+         var n = 2
+
+         //maior e menor numero que o js consegue manipular
+         mostrar(Number.MAX_VALUE)
+         mostrar(Number.MIN_VALUE)
+
+         //tem relação com o numero de casas decimais e pode acrescentar
+         mostrar(n.toFixed(3))
+
+         //toPrecision quantas casas terá o numeri
+         mostrar('n = ' + n.toPrecision(5));
+
+         mostrar(n.toString());
+
+         mostrar(Math.min(1,0.5,7,9)) //minimo
+         mostrar(Math.round(1.93)) //arredondar p/cima
+         mostrar(Math.floor(1.57)) //arredondar p/baixo
+         mostrar(Math.ceil(1.78)) // semelhante ao round
+         mostrar(Math.pow(2,9)); //potencia
+         //....
+         
+
+    </script>
+    
+</body>
+</html>

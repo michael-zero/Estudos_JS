@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const nome = "Mike"; 
+
+    function quemEh(){
+        
+        return new Promise((resolve, reject) => {
+            if(nome != 'Mike'){
+                reject({
+                    nome: 'Está errado',
+                    msg: 'deu ruim em,'
+                })
+            }else{
+                resolve({
+                    nome: 'nome correto',
+                    msg: 'parabens, funfou!'
+                })
+            }
+        })
+
+    }
+
+    quemEh()
+    .then((res) => {console.log(res.msg)})
+    .catch((error) => {console.log(error.msg)})
+
+    console.log('first')
+
+        
+        // const estudante = 'Michael'
+
+        // function quemEhoAluno(callback, errorCallback){
+        //     if(estudante != 'Michael'){
+        //         //chamando e passando o obj como parâmetro
+        //         errorCallback({
+        //             name: 'está errado',
+        //             message: estudante + '? realmente!'
+        //         })
+        //     }else{
+        //         callback({
+        //             name: estudante,
+        //             message: 'Michael estuda na UFPI'
+        //         })
+        //     }
+        // }
+
+        // //chamando e passando as definições das funçôes 
+        // quemEhoAluno((result) => {
+        //     console.log(result.name + '? sim! ' + result.message)
+        // }, (error) => {
+        //     console.log(error.name + ' ' + error.message)
+        // })
+
+    </script>
+</body>
+</html>

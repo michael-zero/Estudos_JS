@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .banner{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 1000px rgb(0,0,0,.8);
+            display: none;
+        }
+
+        .banner_close{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+    </style>
+    <title>Document</title>
+
+    <div class="banner">
+        <h2>Banner bosta</h2>
+        <button class="banner_close">X</button>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, sequi!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus corporis facilis earum, harum 
+            suscipit ratione explicabo laboriosam repudiandae consequatur reiciendis!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit nam saepe nulla accusamus earum? 
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, hic!
+        </p>
+    </div>
+    
+</head>
+<body>
+    <script>
+
+        (function(){
+             var $banner = document.querySelector('.banner');
+             var $btnBanner = document.querySelector('.banner_close')
+             var intervaloEsconde = null;
+
+            $btnBanner.addEventListener('click', esconderBanner)
+
+             function mostrarBanner(){
+                 $banner.style.display = 'block';
+                 intervaloEsconde = setTimeout(esconderBanner, 4000)
+             }
+
+             function esconderBanner(){
+                 $btnBanner.removeEventListener('click', esconderBanner); //remove o listener por causa do consumo de
+                 $banner.parentNode.removeChild($banner);
+
+                 clearTimeout(intervaloEsconde);
+             }
+
+             setTimeout(mostrarBanner, 2000);
+            
+
+        })()
+
+    </script>
+</body>
+</html>

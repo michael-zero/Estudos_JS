@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let arr = [1,2,3,'casa'];
+        let it =  arr[Symbol.iterator](); //Symbol são únicos
+
+        var x = Symbol('x');
+        var y = Symbol('x');
+
+        console.log('Symbols são únicos, logo x != y ',x === y);
+
+        console.log(it.next());
+
+        for( item of arr){
+            console.log(item);
+        }
+
+
+        const p = {
+            [Symbol('id')] :'h2011Ty', 
+            [Symbol('cpf')]: '06732567890',
+            uf: 'SC' 
+        }
+
+        let show = console.log; 
+
+        show(Object.keys(p)); //nao sao chaves, sao pros symbols
+
+        show(Object.getOwnPropertySymbols(p));
+
+        const symbols = Object.getOwnPropertySymbols(p);// retorna um vetor com as propriedades
+
+        show(symbols.map(i => p[i]));//pega o valor de cada propriedade
+
+    </script>
+</body>
+</html>

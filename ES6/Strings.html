@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <div class="lista">
+        <li>Michael</li>
+        <li>Nádia</li>
+        <li>Dinossauros</li>
+    </div>
+
+
+</head>
+<body>
+    <script>
+        let nome = "Michael";
+        let show = console.log;
+
+        console.log(nome.startsWith("M"));
+        show(nome.startsWith('h',3));//se inicia com h a partir da pos = 3.
+
+        show("Termina com el ",nome.endsWith("el"));
+
+        let casa = 'Lorem ipsum dolor sit amet';
+        show("termina com ame ", casa.endsWith('ame', 25));
+
+
+        show(casa.repeat(5).includes('ipsum'));
+
+        //Arrays
+        let $lista = document.querySelectorAll('.lista li');
+        
+        show($lista); //node list
+
+        ListaIteravel = Array.from($lista);
+
+        show(ListaIteravel.map(item => item.textContent));
+
+        ListaIteravel.forEach((dado,i) => {console.log(i, dado.textContent)})
+
+
+        //criar array 
+
+        let arr = Array.of(0,5, {name: 'mike'}, 10);
+
+        show(arr);
+
+
+        let vetor = [0.5, 2, 8 , 10]; 
+
+        show(vetor.find(n => n > 7)); //retorna o primeiro elemento que satisfaz a condição
+        show('indice ', vetor.findIndex(n => n > 7)); // retorna a posição
+
+
+        const pessoas = [
+            {
+                nome: 'Michael',
+                idade: 22
+            }, 
+            {
+                nome: 'Nádia',
+                idade: 21 
+            }
+        ]
+
+        show(pessoas.find(obj => obj.nome === 'Nádia'));
+        show(pessoas.findIndex(obj => obj.nome === 'Michael'));
+
+
+        //Array.fill(); Preenchimento
+
+        var a = new Array(10);
+        show(a);
+
+        a.fill('lol');
+        show(a);
+
+        show(a.fill('abc', 0, 4));
+
+
+
+
+        
+
+        
+
+       
+
+    </script>
+</body>
+</html>
