@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+    <textarea  id="msg" cols="50" rows="10" maxlength="10"></textarea>
+    <div id="restaContainer" style="display: none;">Restam <span id="resta"></span> caracteres</div>
+</body>
+    <script>
+        (function(){
+            'use strict'
+        
+            var restaContainer = document.querySelector("#restaContainer")
+            var resta = document.querySelector('#resta')
+            var txtMsg = document.querySelector('#msg')
+            
+            
+            var maxima = txtMsg.maxLength; 
+
+
+            mostrarContainerResta()
+
+            mostraCaracteresRestantes(maxima)
+
+            txtMsg.addEventListener("input", verificaTamanho)
+
+
+
+            
+            function verificaTamanho(e){
+                var letrasDigitadas = this.value.length
+                var caracteresRestantes = parseInt(maxima) - parseInt(letrasDigitadas)
+                mostraCaracteresRestantes(caracteresRestantes)
+            }
+
+            function mostraCaracteresRestantes(n){
+                resta.textContent = n; 
+            }
+
+            function mostrarContainerResta(){
+                restaContainer.style.display = "block"
+            }
+
+        })()
+    </script>
+</html>

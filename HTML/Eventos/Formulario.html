@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="#" style="width: 50%;" method="POST">
+        <fieldset>
+            <legend>Cadastro</legend>
+            <input type="text" id="txtUsu" name="usuario">
+            <input type="password" id="txtSenha" name="senha">
+            <button type="submit" id="btn" name="btn-enviar">Logar</button>
+        </fieldset>
+    </form>
+
+
+    <script>
+        (function(){
+            'use strict'
+
+            var form = document.querySelector('form')
+            var txtUser = document.querySelector('#txtUsu');
+            var txtSenha = document.querySelector('#txtSenha');
+            var btn = document.querySelector('#btn');
+
+            form.addEventListener('submit', function(e){
+                if(!txtUser.value  || !txtSenha.value){
+                    alert('Preencha todos os campos!')
+                    e.preventDefault()
+                }
+            })
+
+        })()
+    </script>
+</body>
+</html>

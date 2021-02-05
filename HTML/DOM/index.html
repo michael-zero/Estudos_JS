@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo</h1>
+        
+        <main class="cmain" id="idmain">
+            <h2>subtitulo</h2>
+            <p id="pmain" class="pmain">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        </main> 
+        
+        <section class="csection" id="idsection">
+            <h3>subtitulo</h3>
+            <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+            <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        </section>
+        
+        <script>
+            let pmain = document.getElementById('pmain')
+            // retorna uma coleção getElementsByClassName
+            let paragrafos = document.getElementsByClassName('paragrafos')
+            let todos_p = document.getElementsByTagName('p')
+            //captura pelo seletor (pega o p dentro do #idmain)
+            let id = document.querySelector('#idmain p')
+            let h1 = document.querySelector('h1') //pega o primeiro 
+          
+
+            console.log(todos_p.length)
+
+            pmain.textContent = 'Texto alterado'
+            paragrafos[0].textContent = `Existem ${todos_p.length} parágrafos`
+
+            h1.textContent = 'Aprendendo manipular elementos da DOM'
+
+            console.log(paragrafos[0].textContent)
+
+
+            
+        </script>
+        
+    </body>
+</html>

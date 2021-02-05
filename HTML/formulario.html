@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <div style="display: flex;">
+    <form action="cadastro.html" method="POST">
+       
+        <fieldset style="width: 100px;">
+            <legend>Informações Pessoais</legend>
+            
+            <input type="text" name="Curso" value="Ciência da Computação" disabled>
+            Email: <br>
+            <!-- Email -->
+            <input type="email" required name="email" autocomplete="off" placeholder="seuemail@gmail.com">
+            Nome: <br>
+            <!-- Nome -->
+            <input type="text" name="nome" required><br>
+            Senha: <br>
+            <!-- Senha -->
+            <input type="password" name="senha" required maxlength="7"><br>
+           
+            <!-- Radio: Só escolhe um, mesmo name -->
+            Área: <br>
+            <input type="radio" name="cargo" checked>Backend <br>
+            <input type="radio" name="cargo">Frontend <br>
+
+            <!-- Checkbox: Pode escolher vários, mesmo name e tem os values diferentes -->
+            Linguagem: <br>
+            <input type="checkbox" name="linguagem" value="python" checked> Python <br>
+            <input type="checkbox" name="linguagem" value="javascript"> JS <br>
+
+            <!-- Number -->
+            Anos de contrato: <br>
+            <input type="number" name="anos" max="10" min="2" step="2"><br>
+            <!-- Slider  -->
+            <input type="range" name="anos">
+            <!-- Button -->
+            <input type="submit" name="btn-enviar" value="Enviar"> <br>
+
+            <!-- Cor -->
+            <input type="color" name="cor">
+
+       </fieldset>
+     </form>
+
+     <form action="cadastro.html">
+         <fieldset>
+             <legend>Upload</legend>
+             <input type="file" name="imagem"><br>
+
+             Tempo: <br>
+             <!-- ano/mes/dia -->
+             Hora: <br>
+             <input type="time" name="hora"><br>
+
+             Semana: <br>
+             <input type="week" name="semana"><br>
+
+             Data e hora: <br>
+             <input type="datetime-local" name="data_hora"><br>
+
+             Mês e ano: <br>
+             <input type="month" name="mes-ano"><br>
+
+             <input type="date" name="data" min="2020-02-04" max="2020-12-31"><br>
+             URL: <br>
+             <input type="url" name="site"><br>
+
+             Search: <br>
+             <input type="search" name="busca"><br>
+
+             Telefone: <br>
+             <input type="tel" name="telefone"><br>
+         </fieldset>
+     </form>
+    
+    </div>
+
+</body>
+</html>

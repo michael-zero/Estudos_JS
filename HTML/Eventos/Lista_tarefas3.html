@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .feito{
+            text-decoration: line-through;
+            color:#555;
+
+        }
+    </style>
+    <title>Lista Tarefas</title>
+
+    <input type="text" id="txtTarefa">
+    <input type="submit" id="btn">
+    <ul>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Django</li>
+    </ul>
+</head>
+<body>
+    <script>
+       
+        (function(){
+            'use strict';
+
+            var ul = document.querySelector('ul');
+            var lis = ul.querySelectorAll('li');
+            var btn = document.querySelector('#btn')
+            var txtTarefa = document.querySelector('#txtTarefa')
+
+            btn.addEventListener('click', addTarefa)
+            txtTarefa.addEventListener('keyup', function(e){
+                if(e.keyCode === 13){
+                    addTarefa();
+                }
+            })
+
+            //add listener em cada li 
+            for(var i=0; i < lis.length; i++){
+                lis[i].addEventListener('click', feito)
+            }
+
+            //add classe
+            function feito(){
+                this.classList.toggle('feito')
+            }
+
+            function addTarefa(e){
+                var tarefa = `<li>${txtTarefa.value}</li>`; 
+                //Perde a ref da DOM
+                ul.innerHTML += tarefa;
+                
+                txtTarefa.value = "";
+                txtTarefa.focus();
+            }
+
+        }())
+    </script>
+</body>
+</html>

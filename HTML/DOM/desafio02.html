@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio02</title>
+</head>
+<body>
+    <input type="text" id="txtNome" value="nome">
+    <button onclick="escreve()">Submeter</button>
+
+    <div id="msg"></div>
+
+    <script>
+        var textNome;
+        txtNome = document.querySelector('#txtNome') //ref do input
+        
+
+        const escreve = () => {
+            var nome = txtNome.value //pega valor e armazena em nome
+            document.querySelector('#msg').innerHTML = `Bem-vindo, <strong>${nome}</strong>` //mostra o nome na tela
+            
+        }
+
+       
+            
+      
+    </script>
+</body>
+</html>

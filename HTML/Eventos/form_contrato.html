@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+</head>
+<body>
+    <h1>Contrato da China</h1>
+
+    <form action="#">
+        <textarea cols="30" rows="10" readonly>Contrato de serviço</textarea><br>
+
+        <label> <input id="chk" type="checkbox" checked> Li e aceito os termos de contrato</label><br>
+        <input id="btn" type="submit" value="Continuar">
+    </form>
+
+    <script>
+        'use strict';
+
+        (function(){
+            var btn = document.querySelector('#btn')
+            var chk = document.querySelector('#chk')
+
+            alternaBtn()
+            
+            chk.addEventListener('change', function(e){
+               alternaBtn()
+            })
+
+            function alternaBtn(){
+                btn.disabled = !chk.checked
+            }
+
+        })()
+    </script>
+
+</body>
+</html>
