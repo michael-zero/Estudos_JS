@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <label for="mensagem">
+            Mensagem
+             <textarea name="mensagem" id="msg" cols="10" rows="5"></textarea>
+        </label>
+
+        <!-- Select -->
+        <select name="veiculo">
+            <!-- Grupos -->
+            <optgroup label="carros">
+                <option value="saveiro">Saveiro</option>
+                <option value="s10">S10</option>
+            </optgroup>
+            <!-- Fim grupo -->
+
+            <option value="moto">moto</option>
+            <option value="helicoptero">helicoptero</option>
+        </select>
+
+        <!-- Lista de dados  -->
+        <input name='cursos' list="lista-cursos">
+        <datalist id="lista-cursos">
+            <option value="html5">
+            <option value="django">
+        </datalist>
+
+    </form>
+
+    <div>
+        <p contenteditable="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, minus?</p>
+    </div>
+</body>
+</html>

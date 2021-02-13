@@ -68,6 +68,7 @@
             function removeTarefa(li){
                 if(confirm(`Deseja realmente excluir a tarefa \n ${li.textContent} ?`)){
                     console.log(li.parentNode)
+                    //pai remove os filhos
                     li.parentNode.removeChild(li);
                 }
             }
